@@ -18,8 +18,8 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minLength: 8,
-    maxLength: 20
+    minLength: 5,
+    maxLength: 255
   }
 });
 // userSchema.methods.GenerateAuthToken = function(){

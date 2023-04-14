@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const _ = require('lodash')
+const bcrypt = require('bcrypt');
 const {User,validate} = require('../model/user')
 
 router.get('/me', async(req,res) =>{
-  throw new Error('something failed')
   const user = await User.findById(req.user._id).select('-password');
-  res.send(users)
+  res.send(user)
 })
 
 router.post('/',async(req,res) =>{
@@ -17,8 +18,11 @@ router.post('/',async(req,res) =>{
     password: req.body.password
   })
   
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(req.body.password,salt);
+  
   await user.save();
-  res.send(user)
+  res.send(_.pick(user,['_id','username','email']));
 })
 
 module.exports = router
