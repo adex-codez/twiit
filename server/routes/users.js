@@ -3,6 +3,7 @@ const router = express.Router();
 const {User,validate} = require('../model/user')
 
 router.get('/me', async(req,res) =>{
+  throw new Error('something failed')
   const user = await User.findById(req.user._id).select('-password');
   res.send(users)
 })
