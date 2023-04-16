@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 const Post = mongoose.model('Post', new mongoose.Schema({
-  post: {
+  content: {
     type: String,
     required: true,
     minLength: 3,
@@ -36,7 +36,7 @@ const Post = mongoose.model('Post', new mongoose.Schema({
 
 function validatePost(req){
   const Schema = Joi.object({
-    post: Joi.string().min(3).required(),
+    content: Joi.string().min(3).required(),
     authorId: Joi.objectId().required()
   });
   
