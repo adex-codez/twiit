@@ -7,6 +7,7 @@ require('./startup/db')()
 require('./startup/logger')()
 require('./startup/routes')(app);
 require('./startup/config')()
+require('./startup/validate')()
 
 
 

@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     minLength: 5,
     maxLength: 255,
-    unique: true
   },
   password: {
     type: String,
@@ -45,3 +44,4 @@ function validateUser(user){
 
 exports.User = User;
 exports.validate = validateUser;
+exports.userSchema = userSchema;
