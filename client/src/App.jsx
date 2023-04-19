@@ -1,11 +1,9 @@
-import React, { useState } from "react"
-
+import React from 'react'
 
 function App() {
   return (
-    <div className="App font-body px-10">
-      <Menu />
-      <Upload />
+    <div>
+      
     </div>
   )
 }
