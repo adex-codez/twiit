@@ -23,8 +23,11 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-
   },
+  {
+    path: '/signIn',
+    element: '<h1>This is the sign in page<h1>'
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
