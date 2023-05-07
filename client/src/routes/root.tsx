@@ -20,7 +20,7 @@ function SignInBtn (){
 
 
 function Root() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
   
   useEffect(() => {
     const authToken = localStorage.getItem('x-auth-token');
