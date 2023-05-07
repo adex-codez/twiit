@@ -37,7 +37,7 @@ function Root() {
     <div className="flex flex-col items-center">
       <div className="w-full md:max-w-2xl">
         <div>
-          {true ? 
+          {isSignedIn ? 
               <CreatePostWizard />
             :
             <SignInBtn />
