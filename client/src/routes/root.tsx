@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 function CreatePostWizard() {
   return (
     <div className="py-6 px-6 md:px-0">
-      <textarea placeholder="Bio" className="textarea textarea-bordered textarea-lg w-full h-52 " />
-      <button className="px-8 py-2 rounded-md bg-tertiary-500  border-none text-slate-900 text-lg font-normal mt-6 hover:shadow-md active:shadow-sm flex items-end">Post</button>
+      <textarea placeholder="Bio" className="textarea textarea-bordered textarea-lg w-full h-52 focus:outline-none" />
+      <button className="px-8  py-3 rounded-md bg-tertiary-500  border-none text-slate-900 text-md font-normal  mt-6 hover:shadow-md active:shadow-sm flex items-end">Post</button >
     </div>
   );
 }
+Array
 
 function SignInBtn (){
   return(
@@ -36,7 +37,7 @@ function Root() {
     <div className="flex flex-col items-center">
       <div className="w-full md:max-w-2xl">
         <div>
-          {isSignedIn ? 
+          {true ? 
               <CreatePostWizard />
             :
             <SignInBtn />
