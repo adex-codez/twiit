@@ -10,7 +10,7 @@ import {
 } from '@tanstack/react-query';
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import './index.css';
-import Root,{loader as rootLoader, action as rootAction} from './routes/root';
+import Root from './routes/root';
 
 import SignUp from './routes/signUp';
 import { ErrorBoundary } from './routes/error';
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    loader: rootLoader(queryClient),
-    action: rootAction,
+    // loader: rootLoader(queryClient),
+    // action: rootAction,
     errorElement: <ErrorBoundary />
   },
   {

@@ -14,19 +14,19 @@ function CreatePostWizard() {
 function SignInBtn (){
   return(
     
-    <Link className="text-slate-200 flex justify-end mt-4 mr-4" to={'/signIn'}>Sign in</Link>
+    <Link className="text-slate-200 flex justify-end mt-4 mr-4" to={'/signup'}>Sign in</Link>
   )
 }
 
 
 
-export const loader = (queryClient: QueryClient) => async()=>{
+// export const loader = (queryClient: QueryClient) => async()=>{
   
 
-}
-export const action = () =>{
+// }
+// export const action = () =>{
   
-}
+// }
 
 
 function Root() {
@@ -42,7 +42,7 @@ function Root() {
       } 
   }, [isSignedIn])
   
-    useQuery(['posts'], loader)
+    // useQuery(['posts'], loader)
   return (
     <div className="flex flex-col items-center">
       <div className="w-full md:max-w-2xl">
