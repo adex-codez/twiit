@@ -1,3 +1,4 @@
+import { QueryClient, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,13 +10,22 @@ function CreatePostWizard() {
     </div>
   );
 }
-Array
 
 function SignInBtn (){
   return(
     
     <Link className="text-slate-200 flex justify-end mt-4 mr-4" to={'/signIn'}>Sign in</Link>
   )
+}
+
+
+
+export const loader = (queryClient: QueryClient) => async()=>{
+  
+
+}
+export const action = () =>{
+  
 }
 
 
@@ -32,7 +42,7 @@ function Root() {
       } 
   }, [isSignedIn])
   
-  
+    useQuery(['posts'], loader)
   return (
     <div className="flex flex-col items-center">
       <div className="w-full md:max-w-2xl">
@@ -44,6 +54,7 @@ function Root() {
           }
         </div>
       </div>
+      
     </div>
   );
 }

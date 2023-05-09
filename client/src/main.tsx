@@ -8,8 +8,12 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import './index.css';
-import Root from './routes/root';
+import Root,{loader as rootLoader, action as rootAction} from './routes/root';
+
+import SignUp from './routes/signUp';
+import { ErrorBoundary } from './routes/error';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,10 +27,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    loader: rootLoader(queryClient),
+    action: rootAction,
+    errorElement: <ErrorBoundary />
   },
   {
-    path: '/signIn',
-    element: '<h1>This is the sign in page<h1>'
+    path: '/signup',
+    element: <SignUp />,
+    errorElement: <ErrorBoundary />
   }
 ]);
 
@@ -34,6 +42,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
+      {/* <ReactQueryDevtools  initialIsOpen={false}/> */}
     </QueryClientProvider>
   </React.StrictMode>,
 );
