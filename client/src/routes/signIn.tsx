@@ -1,28 +1,28 @@
+
 import { useForm, SubmitHandler } from 'react-hook-form'
 
-type UserData = {
+type  LoginDetails = {
   username: string,
-  emailAddress: string,
   password: string
 }
 
 // type Username = Pick<UserData, 'username'>;
-type Password = Pick<UserData, 'password'>;
+// type Password = Pick<UserData, 'password'>;
 
-const onSubmit: SubmitHandler<UserData> = data => {
+const onSubmit: SubmitHandler<LoginDetails> = data => {
   const userFormData = data;
   console.log(userFormData);
 };
 
-function SignUp() {
+function SignIn() {
 
-  const {register, handleSubmit, formState} = useForm<UserData>();
+  const {register, handleSubmit, formState} = useForm<LoginDetails>();
   const {errors} = formState;
   
   
   return (
     <div className="flex items-center justify-center">
-      <form method="post" action="/signUP" className="mt-10 w-[90%] bg-secondary p-8 h-[540px] rounded-md mb-4 md:w-1/2 lg:w-2/6" onSubmit={handleSubmit(onSubmit)}>
+      <form method="post" action="/signUP" className="mt-10 w-[90%] bg-secondary p-8 h-[400px] rounded-md mb-4 md:w-1/2 lg:w-2/6" onSubmit={handleSubmit(onSubmit)}>
         <p className="text-center mb-4 text-2xl text-gray-600">Sign Up</p>
         <div className="form-control w-full mb-4">
           <label htmlFor="username" className="label">
@@ -31,21 +31,7 @@ function SignUp() {
           <input type="text" className="input w-full bg-primary" {...register("username", { required: "username is required", min: 5})} />
           <p className='text-red-800'>{errors.username?.message}</p>
         </div>
-        <div className="form-control w-full mb-4">
-          <label htmlFor="username" className="label">
-            <span className="label-text text-base text-gray-600">Enter Email Address</span>
-          </label>
-          <input type="email" className="input w-full bg-primary" {...register("emailAddress", {
-            required: 'Email Address is required', 
-            pattern: { 
-            value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-            message: 'Invalid Email Format'
-            }
-          }
-          )}/>
-          <p className='text-red-800'>{errors.emailAddress?.message}</p>
-        </div>
-        <div className="form-control w-full mb-4">
+       <div className="form-control w-full mb-4">
           <label htmlFor="username" className="label">
             <span className="label-text text-base text-gray-600">Enter Password</span>
           </label>
@@ -69,11 +55,10 @@ function SignUp() {
           <p className='text-red-800'>{errors.password?.message}</p>
         </div>
         <button type="submit" className="btn bg-tertiary-500 border-none text-gray-900 hover:text-gray-300">Submit</button>
-        <p className="mt-4 text-sm text-gray-600">Already have an account? <a  className="text-blue-800 hover:underline">Sign in</a></p>
+        <p className="mt-4 text-sm text-gray-600">Don't have an account <a className="text-blue-800 hover:underline">Sign Up</a></p>
       </form>
     </div>
   )
 }
 
-
-export default SignUp
+export default SignIn
