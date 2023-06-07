@@ -1,10 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { UserData } from '../types/types';
 
-type UserData = {
-  username: string,
-  emailAddress: string,
-  password: string
-}
+
 
 // type Username = Pick<UserData, 'username'>;
 type Password = Pick<UserData, 'password'>;
