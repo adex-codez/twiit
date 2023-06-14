@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { PostWithUser } from '../types/types';
+import { Link, useLoaderData } from 'react-router-dom';
+import { PostWithUser } from 'types/types';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 
@@ -44,7 +44,7 @@ const PostView = (props: PostWithUser) => {
 };
 
 function SignUpBtn() {
-  return <a className="mr-4 mt-4 flex justify-end text-slate-200">Sign Up</a>;
+  return <Link to="/signup" className="mr-4 mt-4 flex justify-end text-slate-200">Sign Up</Link>;
 }
 
 function Root() {
@@ -59,7 +59,6 @@ function Root() {
   }, []);
 
   const posts = useLoaderData() as PostWithUser[];
-	console.log(posts);
   return (
     <div className="flex flex-col items-center">
       <div className="w-full md:max-w-2xl">

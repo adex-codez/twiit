@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { UserData } from '../types/types';
+import { UserData } from 'types/types';
+import { Link } from 'react-router-dom';
 
 
 
@@ -32,7 +33,7 @@ function SignUp() {
           <label htmlFor="username" className="label">
             <span className="label-text text-base text-gray-600">Enter Email Address</span>
           </label>
-          <input type="email" className="input w-full bg-primary" {...register("emailAddress", {
+          <input type="email" className="input w-full bg-primary" {...register("email", {
             required: 'Email Address is required', 
             pattern: { 
             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -40,7 +41,7 @@ function SignUp() {
             }
           }
           )}/>
-          <p className='text-red-800'>{errors.emailAddress?.message}</p>
+          <p className='text-red-800'>{errors.email?.message}</p>
         </div>
         <div className="form-control w-full mb-4">
           <label htmlFor="username" className="label">
@@ -66,7 +67,7 @@ function SignUp() {
           <p className='text-red-800'>{errors.password?.message}</p>
         </div>
         <button type="submit" className="btn bg-tertiary-500 border-none text-gray-900 hover:text-gray-300">Submit</button>
-        <p className="mt-4 text-sm text-gray-600">Already have an account? <a  className="text-blue-800 hover:underline">Sign in</a></p>
+        <p className="mt-4 text-sm text-gray-600">Already have an account? <Link to="/signin"  className="text-blue-800 hover:underline">Sign in</Link></p>
       </form>
     </div>
   )

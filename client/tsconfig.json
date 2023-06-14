@@ -19,8 +19,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": "src"
   },
-  "include": ["src", "postcss.config.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "postcss.config.js", "prettier.config.cjs"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  
 }
